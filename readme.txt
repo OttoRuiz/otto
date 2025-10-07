@@ -6,8 +6,9 @@
 2. Upload all files (`index.html`, `style.css`, `orb.js`) to the root of the repo.
 
 3. Commit & push.  
-   Within ~30 s your site is live at `https://<your-username>.github.io`.
+   Within ~30 s your site is live at `https://ottoruiz.github.io/otto/`.
 
 4. Hack away: edit `orb.js` to swap shaders, add post-effects, load textures, etc.
+
 
 All assets are static—GitHub Pages limitation satisfied. Enjoy!
