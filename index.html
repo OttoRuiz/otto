@@ -1,7 +1,27 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <meta charset="utf-8"/><!doctype html>
+<html lang="en">
+<head>
   <meta charset="utf-8"/>
+  <title>WebGL Orb – GitHub Pages Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <section id="hero">
+    <canvas id="orb"></canvas>
+    <div class="overlay">
+      <h1>3-D WebGL Orb</h1>
+      <p>Drag to rotate · Scroll to zoom · Edit orb.js to add your own shaders</p>
+    </div>
+  </section>
+
+  <!-- Load orb.js as an ES module -->
+  <script type="module" src="orb.js"></script>
+</body>
+</html>
   <title>WebGL Orb – GitHub Pages Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="stylesheet" href="style.css"/>
@@ -24,3 +44,4 @@
   <script src="orb.js"></script>
 </body>
 </html>
+
