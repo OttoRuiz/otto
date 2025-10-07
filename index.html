@@ -5,29 +5,26 @@
   <title>WebGL Orb – GitHub Pages Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="stylesheet" href="style.css"/>
-<base target="_blank">
 </head>
+
 <body>
   <section id="hero">
-    <canvas id="orb"></canvas>
+    <canvas id="orb"></canvas>          <!-- 1. fixed close tag -->
     <div class="overlay">
       <h1>3-D WebGL Orb</h1>
-      <p>Drag to rotate • Scroll to zoom • Edit orb.js to add your own shaders</p>
+      <p>Drag to rotate · Scroll to zoom · Edit orb.js to add your own shaders</p>
     </div>
   </section>
 
-  <!-- Three.js CDN (MIT) -->
+  <!-- Three.js core -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
+  <!-- Post-processing add-ons -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/postprocessing/EffectComposer.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/postprocessing/RenderPass.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+
+  <!-- Your scene -->
   <script src="orb.js"></script>
 </body>
 </html>
-<!-- 1. Three.js core -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-
-<!-- 2. Post-processing plugins -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/postprocessing/EffectComposer.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/postprocessing/RenderPass.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
-
-<!-- 3. Your code -->
-<script src="orb.js"></script>
