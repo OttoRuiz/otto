@@ -1,17 +1,26 @@
 /* Three.js WebGL orb with procedural noise + post bloom */
+
+// --- Import required Three.js classes ---
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+import { EffectComposer } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/postprocessing/UnrealBloomPass.js';
+
+// --- Get canvas ---
 const canvas = document.getElementById('orb');
 let width = canvas.clientWidth;
 let height = canvas.clientHeight;
 
+// --- Scene setup ---
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(45, width/height, .1, 100);
+const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
 camera.position.z = 4;
 
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
 renderer.setSize(width, height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-/* --- ShaderMaterial for the orb --- */
+// --- ShaderMaterial for the orb ---
 const vertexShader = `
   varying vec2 vUv;
   varying vec3 vNormal;
@@ -79,19 +88,19 @@ const orb = new THREE.Mesh(
 );
 scene.add(orb);
 
-/* --- Optional bloom post-effect (UnrealBloomPass) --- */
-const renderScene = new THREE.RenderPass(scene, camera);
-const bloomPass = new THREE.UnrealBloomPass(
+// --- Optional bloom post-effect (UnrealBloomPass) ---
+const renderScene = new RenderPass(scene, camera);
+const bloomPass = new UnrealBloomPass(
   new THREE.Vector2(width, height),
   1.2,   // strength
-  .4,    // radius
-  .85    // threshold
+  0.4,   // radius
+  0.85   // threshold
 );
-const composer = new THREE.EffectComposer(renderer);
+const composer = new EffectComposer(renderer);
 composer.addPass(renderScene);
 composer.addPass(bloomPass);
 
-/* --- Mouse/touch camera control --- */
+// --- Mouse/touch camera control ---
 let mouseX = 0, mouseY = 0, targetX = 0, targetY = 0;
 let isDown = false;
 
@@ -111,13 +120,13 @@ canvas.addEventListener('touchstart', onPointerDown);
 canvas.addEventListener('touchend', onPointerUp);
 canvas.addEventListener('touchmove', onPointerMove);
 
-/* --- Zoom with wheel --- */
+// --- Zoom with wheel ---
 canvas.addEventListener('wheel', e => {
-  camera.position.z = Math.max(2, Math.min(8, camera.position.z + e.deltaY * .01));
+  camera.position.z = Math.max(2, Math.min(8, camera.position.z + e.deltaY * 0.01));
   e.preventDefault();
 });
 
-/* --- Resize --- */
+// --- Resize ---
 window.addEventListener('resize', () => {
   width = canvas.clientWidth;
   height = canvas.clientHeight;
@@ -127,17 +136,17 @@ window.addEventListener('resize', () => {
   composer.setSize(width, height);
 });
 
-/* --- Animate --- */
+// --- Animate ---
 const clock = new THREE.Clock();
 (function animate() {
   requestAnimationFrame(animate);
   const t = clock.getElapsedTime();
   orb.material.uniforms.time.value = t;
 
-  targetX += (mouseX - targetX) * .05;
-  targetY += (mouseY - targetY) * .05;
+  targetX += (mouseX - targetX) * 0.05;
+  targetY += (mouseY - targetY) * 0.05;
   orb.rotation.y = targetX * Math.PI;
-  orb.rotation.x = targetY * Math.PI * .5;
+  orb.rotation.x = targetY * Math.PI * 0.5;
 
   composer.render();
 })();
