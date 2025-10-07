@@ -8,8 +8,13 @@ import { UnrealBloomPass } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/exam
 
 // --- Get canvas ---
 const canvas = document.getElementById('orb');
-let width = canvas.clientWidth;
-let height = canvas.clientHeight;
+let width = window.innerWidth;
+let height = window.innerHeight;
+
+// ...
+renderer.setSize(width, height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
 
 // --- Scene setup ---
 const scene = new THREE.Scene();
@@ -150,3 +155,4 @@ const clock = new THREE.Clock();
 
   composer.render();
 })();
+
