@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
   <section id="hero">
     <canvas id="orb"></canvas>
@@ -16,14 +15,12 @@
     </div>
   </section>
 
-   <!-- Three.js core -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <!-- Use r151 for compatibility -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.151.3/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.151.3/examples/js/postprocessing/EffectComposer.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.151.3/examples/js/postprocessing/RenderPass.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.151.3/examples/js/postprocessing/UnrealBloomPass.js"></script>
 
-  <!-- Post-processing add-ons -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/postprocessing/EffectComposer.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/postprocessing/RenderPass.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
-
-  <!-- Your scene -->
   <script src="orb.js"></script>
-
+</body>
+</html>
